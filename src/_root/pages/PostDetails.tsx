@@ -12,7 +12,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 const PostDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { data: post, isPending } = useGetPostById(id || "");
+  const { data: post, isLoading } = useGetPostById(id || "");
   const { user } = useUserContext();
   const { mutate: deletePost } = useDeletePost();
 
@@ -39,7 +39,7 @@ const PostDetails = () => {
         </Button>
       </div>
 
-      {isPending || !post ? (
+      {isLoading || !post ? (
         <Loader />
       ) : (
         <div className="post_details-card">

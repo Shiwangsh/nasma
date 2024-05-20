@@ -32,9 +32,9 @@ type PostFormProps = {
 
 export const PostForm = ({ post, action }: PostFormProps) => {
   const { user } = useUserContext();
-  const { mutateAsync: createPost, isPending: isLoadingCreate } =
+  const { mutateAsync: createPost, isLoading: isLoadingCreate } =
     useCreatePost();
-  const { mutateAsync: updatePost, isPending: isLoadingUpdate } =
+  const { mutateAsync: updatePost, isLoading: isLoadingUpdate } =
     useUpdatePost();
   const navigate = useNavigate();
   const { toast } = useToast();
